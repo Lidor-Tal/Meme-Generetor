@@ -2,6 +2,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #eee;
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 100px;
+}
+
+
 canvas {
     display: block;
     margin: auto;
@@ -9,16 +20,24 @@ canvas {
     border: 1px solid black;
 }
 
-.image {
-    height: 90vh;
-    width: 90vw;
+.gallery {
+    display: grid;
+    grid-template-columns:
+        minmax(20px, 1fr) minmax(auto, 530px) minmax(auto, 530px) minmax(20px, 1fr);
+
 }
 
+.gallery>* {}
 
 .gallery-container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .close {
     display: none;
+}
+
+img {
+    width: 100%;
 }

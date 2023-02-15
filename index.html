@@ -12,17 +12,18 @@
 <body onload="initGallery()">
     <h1>MemeGen</h1>
 
-    <div class="image">
+    <div class="gallery">
         <div id="gallery-container" class="gallery-container">
 
         </div>
     </div>
 
     <div class="meme-Editor close">
-        <div class="input-txt">
+        <section class="input-txt">
             <input type="text" name="txt">
             <button onclick="setLineTxt()">submit</button>
-        </div>
+            <input type="color" oninput="changeColor(value)" onchange="saveColor(value)">
+        </section>
 
         <div class="canvas-container">
             <canvas id="my-canvas" height="450" width="450"></canvas>

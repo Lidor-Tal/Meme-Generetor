@@ -24,16 +24,29 @@ function drawImg(currImg, url) {
 
 }
 
-function drawTxt(img) {
-    let txt = getText(img)
+function drawTxt(color) {
+    let txt = 'I sometimes eat Falafel'
     let x = gElCanvas.width / 2
     let y = gElCanvas.height / 2 - 150
     gCtx.lineWidth = 1
-    gCtx.fillStyle = 'white'
+    gCtx.fillStyle = color
     gCtx.font = `25px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
     gCtx.fillText(txt, x, y)
     gCtx.strokeText(txt, x, y)
+}
+
+function changeColor(color) {
+    drawTxt(color)
+}
+
+function saveColor(color) {
+    let meme = getMeme()
+    let lines = meme.lines
+    lines.forEach(line => {
+        line.color = color
+    })
+    console.log(meme);
 }
