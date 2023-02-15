@@ -11,13 +11,14 @@ function init() {
 }
 
 function renderMeme() {
-    drawImg()
+    const { url } = getUrlfromImg()
+    drawImg(url)
 }
 
-function drawImg() {
+function drawImg(url) {
     const img = new Image()
 
-    img.src = 'meme-img/1.jpg'
+    img.src = `${url}`
 
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -29,8 +30,7 @@ function drawImg() {
 function drawTxt() {
     let txt = getText()
     let x = gElCanvas.width / 2
-    let y = gElCanvas.height / 2
-    console.log(txt, x, y);
+    let y = gElCanvas.height / 2 - 150
     gCtx.lineWidth = 1
     gCtx.fillStyle = 'white'
     gCtx.font = `25px Arial`

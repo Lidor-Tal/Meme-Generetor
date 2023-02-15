@@ -2,7 +2,7 @@
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] }];
+var gImgs = [{ id: 1, url: 'meme-img/1.jpg', keywords: ['funny', 'cat'] }];
 
 var gMeme = {
     selectedImgId: 1,
@@ -17,10 +17,20 @@ var gMeme = {
     ]
 }
 
+function getUrlfromImg() {
+    return gImgs.find(id => id = gMeme.selectedImgId)
+}
 
 
 function getText() {
-    console.log(gMeme);
     var lines = gMeme.lines
     return lines.map(lines => lines.txt)
 }
+
+function setLineTxt() {
+    let elInput = document.querySelector('[name="txt"]')
+    let lines = gMeme.lines
+    lines.forEach(line => line.txt = elInput.value)
+    renderMeme()
+}
+
