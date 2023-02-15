@@ -9,17 +9,22 @@
     <title>Document</title>
 </head>
 
-<body>
-    <h1>MemeGen-1</h1>
+<body onload="init()">
+    <h1>MemeGen</h1>
 
     <div class="image-Gallery">
     </div>
 
     <div class="meme-Editor">
-        <div class="canvas-container"></div>
-        <canvas id="my-canvas" height="300" width="300"></canvas>
+        <div class="canvas-container">
+            <canvas id="my-canvas" height="450" width="450"></canvas>
+        </div>
     </div>
 
+
+    <script src="js/utill.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-Controller.js"></script>
 </body>
 
 </html>
