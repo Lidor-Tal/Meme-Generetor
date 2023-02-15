@@ -6,29 +6,26 @@ let gCtx
 function init() {
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    renderMeme()
-
 }
 
-function renderMeme() {
-    const { url } = getUrlfromImg()
-    drawImg(url)
+function renderMeme(img) {
+    drawImg(img, img.url)
 }
 
-function drawImg(url) {
+function drawImg(currImg, url) {
     const img = new Image()
 
     img.src = `${url}`
 
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawTxt()
+        drawTxt(currImg)
     }
 
 }
 
-function drawTxt() {
-    let txt = getText()
+function drawTxt(img) {
+    let txt = getText(img)
     let x = gElCanvas.width / 2
     let y = gElCanvas.height / 2 - 150
     gCtx.lineWidth = 1

@@ -9,13 +9,16 @@
     <title>Document</title>
 </head>
 
-<body onload="init()">
+<body onload="initGallery()">
     <h1>MemeGen</h1>
 
-    <div class="image-Gallery">
+    <div class="image">
+        <div id="gallery-container" class="gallery-container">
+
+        </div>
     </div>
 
-    <div class="meme-Editor">
+    <div class="meme-Editor close">
         <div class="input-txt">
             <input type="text" name="txt">
             <button onclick="setLineTxt()">submit</button>
@@ -27,8 +30,10 @@
     </div>
 
 
-    <script src="js/utill.js"></script>
-    <script src="js/meme-service.js"></script>
+
+    <script src="js/service/utill.js"></script>
+    <script src="js/service/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/meme-Controller.js"></script>
 </body>
 
