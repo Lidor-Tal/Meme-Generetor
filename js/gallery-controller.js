@@ -1,8 +1,10 @@
 'use strict'
 
 function initGallery() {
+    createImgs()
     init()
     renderGallery()
+    console.log(gImgs)
 }
 
 function renderGallery() {

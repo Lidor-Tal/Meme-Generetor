@@ -9,28 +9,31 @@ function init() {
 }
 
 function renderMeme(img) {
-    drawImg(img, img.url)
+    let url = img.url
+    renderInput()
+    drawImg(url)
+
 }
 
-function drawImg(currImg, url) {
+function drawImg(url) {
     const img = new Image()
 
     img.src = `${url}`
 
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawTxt(currImg)
+        let { txt, color, size, x, y } = getCurrLine()
+
+        drawTxt(txt, color, size, x, y)
     }
 
 }
 
-function drawTxt(color) {
-    let txt = 'I sometimes eat Falafel'
-    let x = gElCanvas.width / 2
-    let y = gElCanvas.height / 2 - 150
+function drawTxt(txt, color, size = 50, x = 225, y = 225) {
+    console.log(color);
     gCtx.lineWidth = 1
     gCtx.fillStyle = color
-    gCtx.font = `25px Arial`
+    gCtx.font = `${size}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -38,15 +41,24 @@ function drawTxt(color) {
     gCtx.strokeText(txt, x, y)
 }
 
-function changeColor(color) {
-    drawTxt(color)
+function changeColor(clr) {
+    let { txt, color, size, x, y } = getCurrLine()
+    drawTxt(txt, color = clr, size, x, y)
 }
 
 function saveColor(color) {
-    let meme = getMeme()
-    let lines = meme.lines
-    lines.forEach(line => {
-        line.color = color
-    })
-    console.log(meme);
+    let lines = getCurrLine()
+    lines.color = color
+}
+
+function renderInput() {
+    let { selectedLineIdx } = getMeme()
+    console.log(selectedLineIdx);
+    let strHtml = `
+    <input type="text" name="txt">
+    <button onclick="setLineTxt(${selectedLineIdx})">submit</button>  <input type="color" oninput="changeColor(value)" onchange="saveColor(value)">
+    <button class="addInput" onclick="changelineIdx()">add-Line</button>
+    <button class="changeLines" onclick="changeBetweenLines()"> change lines</button>
+    `
+    document.querySelector('.input-txt').innerHTML = strHtml
 }

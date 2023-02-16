@@ -1,33 +1,46 @@
 'use strict'
 
-let gCurrImg
+let gCurrId = 0
+let gCurrImgCount = 18
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
-var gImgs = [
-    { id: 1, url: 'meme-img/1.jpg', keywords: ['funny', 'tramp'] },
-    { id: 2, url: 'meme-img/2.jpg', keywords: ['funny', 'cat'] },
-    { id: 3, url: 'meme-img/3.jpg', keywords: ['funny', 'cat'] },
-    { id: 4, url: 'meme-img/4.jpg', keywords: ['funny', 'cat'] },
-    { id: 5, url: 'meme-img/5.jpg', keywords: ['funny', 'cat'] },
-    { id: 6, url: 'meme-img/6.jpg', keywords: ['funny', 'cat'] },
-    { id: 7, url: 'meme-img/7.jpg', keywords: ['funny', 'cat'] },
-    { id: 8, url: 'meme-img/8.jpg', keywords: ['funny', 'cat'] },
-    { id: 9, url: 'meme-img/9.jpg', keywords: ['funny', 'cat'] },
-    { id: 10, url: 'meme-img/10.jpg', keywords: ['funny', 'cat'] },
-    { id: 11, url: 'meme-img/11.jpg', keywords: ['funny', 'cat'] },
-    { id: 12, url: 'meme-img/12.jpg', keywords: ['funny', 'cat'] },
-];
+var gImgs = [];
+
+function createImgs() {
+    let img
+    for (let i = 0; i < gCurrImgCount; i++) {
+        let id = gCurrId++
+        img = {
+            id: gCurrId,
+            url: `meme-img/${gCurrId}.jpg`,
+            keywords: ['funny', 'cat']
+        }
+        gImgs.push(img)
+    }
+}
 
 var gMeme =
 {
     selectedImgId: 1, selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
-            size: 20,
+            txt: 'hello',
+            size: 56,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            x: 225,
+            y: 100,
+
+        },
+        {
+            txt: '',
+            size: 56,
+            align: 'left',
+            color: 'red',
+            x: 225,
+            y: 400,
+
         }
     ]
 }
@@ -44,11 +57,16 @@ function getText(img) {
     return lines.map(line => line.txt)
 }
 
-function setLineTxt() {
+function setLineTxt(idx) {
+    console.log(idx);
+    setSelectedLine(idx)
     let elInput = document.querySelector('[name="txt"]')
-
-    lines.forEach(line => line.txt = elInput.value)
-    renderMeme()
+    console.log(elInput.value);
+    if (!elInput.value) return
+    let { txt, color, size, x, y } = getCurrLine()
+    txt = elInput.value
+    elInput.value = ''
+    drawTxt(txt, color, size, x, y)
 }
 
 function getMeme() {
@@ -80,10 +98,34 @@ function getCanvasdispay() {
     gallery.classList.toggle('close')
 }
 
-// function getMemebyId(id) {
-//     return gMeme.find(meme => {
-//         if (meme.selectedImgId === id) {
-//             return meme
-//         }
-//     })
-// }
+function setSelectedLine(idx) {
+    return gMeme.selectedLineIdx = idx
+}
+
+
+
+function getCurrLineTxt() {
+    var { lines, selectedLineIdx } = gMeme
+    return lines[selectedLineIdx].txt
+}
+
+function getCurrLine() {
+    const { lines, selectedLineIdx } = gMeme
+    return lines[selectedLineIdx]
+}
+
+function changelineIdx() {
+    let meme = getMeme()
+    meme.selectedLineIdx++
+    renderInput()
+}
+
+function changeBetweenLines() {
+    let meme = getMeme()
+    if (meme.selectedLineIdx <= 0) {
+        meme.selectedLineIdx++
+    } else {
+        meme.selectedLineIdx--
+    }
+    renderInput()
+}
