@@ -1,0 +1,17 @@
+/* flex-helper */
+
+.flex {
+    display: flex;
+}
+
+.flex .space-between {
+    justify-content: space-between;
+}
+
+.flex .align-center {
+    align-items: center;
+}
+
+.close {
+    display: none;
+}

@@ -4,29 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
 <body onload="initGallery()">
-    <h1>MemeGen</h1>
+
+    <div class="main-screen" onclick="toggleMenu()"></div>
+    <header class="main-header flex space-between align-center">
+        <div class="logo">Logo</div>
+        <div class="navbar">
+            <ul class="main-list flex">
+                <li><a href="#"></a>Gallery</li>
+                <li><a href="#"></a>about</li>
+            </ul>
+        </div>
+        <button onclick="toggleMenu()"> ☰</button>
+    </header>
     <div class="main-gallery">
+        <div class="meme-editor close">
+            <div class="main-box">
+                <section class="input-txt">
+                </section>
+
+                <div class="canvas-container">
+                    <canvas id="my-canvas" height="450" width="450"></canvas>
+                </div>
+            </div>
+        </div>
+
+
         <div class="gallery-container">
             <div id="gallery-container" class="gallery-container">
             </div>
         </div>
     </div>
-    <div class="meme-Editor close">
-        <button onclick="closeCanvas()">Back to gallery</button>
-        <section class="input-txt">
-        </section>
-
-        <div class="canvas-container">
-            <canvas id="my-canvas" height="450" width="450"></canvas>
-        </div>
-    </div>
-
 
 
     <script src="js/service/utill.js"></script>

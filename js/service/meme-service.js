@@ -14,7 +14,7 @@ var gMeme =
     selectedImgId: 1, selectedLineIdx: 0,
     lines: [
         {
-            txt: 'hello',
+            txt: '',
             size: 56,
             align: 'left',
             color: 'red',
@@ -78,7 +78,7 @@ function getCurrImg(id) {
 }
 
 function getCanvasdispay() {
-    let gallery = document.querySelector('.meme-Editor')
+    let gallery = document.querySelector('.meme-editor')
     gallery.classList.toggle('close')
 }
 
@@ -116,4 +116,9 @@ function closeCanvas() {
     // cheackIfWantToSave()
     getCanvasdispay()
     getGalleryDisplay()
+}
+
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
 }

@@ -19,5 +19,8 @@ function createImgs() {
 function getGalleryDisplay() {
     let gallery = document.querySelector('.gallery-container')
     gallery.classList.toggle('close')
+
+    let meme = getMeme()
+    meme.selectedLineIdx === 0
 }
 

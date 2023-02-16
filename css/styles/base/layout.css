@@ -1,0 +1,24 @@
+.main-gallery {
+    display: grid;
+    width: 85vw;
+    height: 80vh;
+    margin: auto;
+    background-color: var(--clr2);
+    grid-template-columns:
+        minmax(40px, 1fr) minmax(auto, 1060px) minmax(40px, 1fr);
+    grid-auto-rows: 1fr;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-radius: 5%;
+}
+
+.main-gallery>* {
+    grid-column: 2;
+}
+
+.img-card {
+    width: 180px;
+    margin: 10px;
+    border-radius: 15%;
+    border: 2px var(--clr4) solid;
+}
