@@ -5,20 +5,9 @@ let gCurrImgCount = 18
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
-var gImgs = [];
 
-function createImgs() {
-    let img
-    for (let i = 0; i < gCurrImgCount; i++) {
-        let id = gCurrId++
-        img = {
-            id: gCurrId,
-            url: `meme-img/${gCurrId}.jpg`,
-            keywords: ['funny', 'cat']
-        }
-        gImgs.push(img)
-    }
-}
+
+
 
 var gMeme =
 {
@@ -75,7 +64,7 @@ function getMeme() {
 
 function setImg(id) {
     let currImg = getCurrImg(id)
-    closeGallery()
+    getGalleryDisplay()
     getCanvasdispay()
     renderMeme(currImg)
 }
@@ -88,11 +77,6 @@ function getCurrImg(id) {
     })
 }
 
-function closeGallery() {
-    let gallery = document.querySelector('.gallery')
-    gallery.classList.add('close')
-}
-
 function getCanvasdispay() {
     let gallery = document.querySelector('.meme-Editor')
     gallery.classList.toggle('close')
@@ -101,8 +85,6 @@ function getCanvasdispay() {
 function setSelectedLine(idx) {
     return gMeme.selectedLineIdx = idx
 }
-
-
 
 function getCurrLineTxt() {
     var { lines, selectedLineIdx } = gMeme
@@ -128,4 +110,10 @@ function changeBetweenLines() {
         meme.selectedLineIdx--
     }
     renderInput()
+}
+
+function closeCanvas() {
+    // cheackIfWantToSave()
+    getCanvasdispay()
+    getGalleryDisplay()
 }

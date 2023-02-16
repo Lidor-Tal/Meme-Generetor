@@ -11,14 +11,14 @@
 
 <body onload="initGallery()">
     <h1>MemeGen</h1>
-
-    <div class="gallery">
-        <div id="gallery-container" class="gallery-container">
-
+    <div class="main-gallery">
+        <div class="gallery-container">
+            <div id="gallery-container" class="gallery-container">
+            </div>
         </div>
     </div>
-
     <div class="meme-Editor close">
+        <button onclick="closeCanvas()">Back to gallery</button>
         <section class="input-txt">
         </section>
 
@@ -31,6 +31,7 @@
 
     <script src="js/service/utill.js"></script>
     <script src="js/service/meme-service.js"></script>
+    <script src="js/service/gallery-service.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-Controller.js"></script>
 </body>
