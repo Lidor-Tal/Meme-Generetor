@@ -23,7 +23,7 @@ var gMeme =
 
         },
         {
-            txt: '',
+            txt: 'hello',
             size: 56,
             align: 'left',
             color: 'red',

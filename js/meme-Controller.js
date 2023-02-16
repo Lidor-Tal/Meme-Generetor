@@ -30,7 +30,8 @@ function drawImg(url) {
 }
 
 function drawTxt(txt, color, size = 50, x = 225, y = 225) {
-    console.log(color);
+    console.log('hi');
+
     gCtx.lineWidth = 1
     gCtx.fillStyle = color
     gCtx.font = `${size}px Arial`
@@ -53,11 +54,10 @@ function saveColor(color) {
 
 function renderInput() {
     let { selectedLineIdx } = getMeme()
-    console.log(selectedLineIdx);
     let strHtml = `<div>
     <button class="btn-closeCanvas" onclick="closeCanvas()">Back to gallery</button>
     <input class="imput" type="text" name="txt"></div>
-    <div><button class="btn onclick="setLineTxt(${selectedLineIdx})">submit</button> 
+    <div><button class="btn" onclick="setLineTxt(${selectedLineIdx})">submit</button> 
     <input type="color" oninput="changeColor(value)" onchange="saveColor(value)"></div>
     <div> <button class="btn addInput" onclick="changelineIdx()">add-Line</button></div>
     <div> <button class="btn changeLines" onclick="changeBetweenLines()"> change lines</button></div>
