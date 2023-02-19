@@ -26,6 +26,15 @@
         <div class="meme-editor close">
             <div class="main-box">
                 <section class="input-txt">
+                    <div onkeyup="drawTxt()">
+                        <input type="text" id="txt" onkeyup="onSetLineTxt(this.value)">
+                    </div>
+                    <div><label class="btn" oninput="setLineTxt(selectedLineIdx)"></label>
+                        <input type="color" oninput="changeColor(value)">
+                    </div>
+                    <div> <button class="btn addInput" onclick="changelineIdx()">add-Line</button></div>
+                    <div> <button class="btn changeLines" onclick="changeBetweenLines()"> change lines</button></div>
+
                 </section>
 
                 <div class="canvas-container">

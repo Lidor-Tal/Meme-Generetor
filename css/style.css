@@ -3,13 +3,12 @@
 @import '/css/setup/mq.css';
 
 /* base */
-@import '/css/base/base.css';
-@import '/css/base/helper.css';
-@import '/css/base/layout.css';
-
+@import 'css/base/base.css';
+@import 'css/base/helper.css';
+@import 'css/base/layout.css';
 /* components */
-@import '/css/components/scroll.css';
-@import '/css/components/header.css';
-@import '/css/components/logo.css';
-@import '/css/components/memeEditor.css';
-@import '/css/components/screen.css';
+@import 'css/components/scroll.css';
+@import 'css/components/header.css';
+@import 'css/components/logo.css';
+@import 'css/components/memeEditor.css';
+@import 'css/components/screen.css';

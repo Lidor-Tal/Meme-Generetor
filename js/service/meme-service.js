@@ -5,30 +5,19 @@ let gCurrImgCount = 18
 
 var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
-
-
-
+let gCurrImg
 
 var gMeme =
 {
     selectedImgId: 1, selectedLineIdx: 0,
     lines: [
         {
-            txt: '',
+            txt: 'first Line',
             size: 56,
             align: 'left',
-            color: 'red',
+            color: 'black',
             x: 225,
             y: 100,
-
-        },
-        {
-            txt: 'hello',
-            size: 56,
-            align: 'left',
-            color: 'red',
-            x: 225,
-            y: 400,
 
         }
     ]
@@ -39,23 +28,9 @@ function getUrlfromImg() {
     return gImgs.find(id => id = gMeme.selectedImgId)
 }
 
-
-function getText(img) {
-    let meme = getMeme()
-    let lines = meme.lines
-    return lines.map(line => line.txt)
-}
-
-function setLineTxt(idx) {
-    console.log(idx);
-    setSelectedLine(idx)
-    let elInput = document.querySelector('[name="txt"]')
-    console.log(elInput.value);
-    if (!elInput.value) return
-    let { txt, color, size, x, y } = getCurrLine()
-    txt = elInput.value
-    elInput.value = ''
-    drawTxt(txt, color, size, x, y)
+function onSetLineTxt(text) {
+    let txt = getCurrLineTxt()
+    return txt += text
 }
 
 function getMeme() {
@@ -64,6 +39,7 @@ function getMeme() {
 
 function setImg(id) {
     let currImg = getCurrImg(id)
+    gCurrImg = currImg
     getGalleryDisplay()
     getCanvasdispay()
     renderMeme(currImg)
