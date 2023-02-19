@@ -4,13 +4,13 @@
 
 /* base */
 
-@import './css/base/base.css';
-@import './css/base/helper.css';
-@import './css/base/layout.css';
+@import './base/base.css';
+@import './base/helper.css';
+@import './base/layout.css';
 /* components */
 
-@import './css/components/scroll.css';
-@import './css/components/header.css';
-@import './css/components/logo.css';
-@import './css/components/memeEditor.css';
-@import './css/components/screen.css';
+@import './components/scroll.css';
+@import './components/header.css';
+@import './components/logo.css';
+@import './components/memeEditor.css';
+@import './components/screen.css';
